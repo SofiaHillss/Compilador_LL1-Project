@@ -25,7 +25,7 @@ A **tabela de First, Follow e Predict** da linguagem **C--** foi construída uti
 👉 [http://hackingoff.com/compilers/predict-first-follow-set](http://hackingoff.com/compilers/predict-first-follow-set)
 
 O resultado completo está disponível em PDF no seguinte caminho do repositório:  
-[📄 Tabelas First, Follow e Predict](./Docs/First-Follow-Predict-C--.pdf)
+[📄 Tabelas First, Follow e Predict](./Docs/tabela_first_follow_predict.pdf)
 
 ---
 ## Como executar
