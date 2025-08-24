@@ -34,6 +34,6 @@ O compilador irá processar o código de exemplo `sort.txt` e gerar o resultado 
 
 ```
 git clone https://github.com/SofiaHillss/Compilador_LL1-Project.git
-cd Front_end_compilador
+cd Compilador_LL1-Project
 python3 main.py
 
