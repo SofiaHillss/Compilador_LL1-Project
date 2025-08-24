@@ -33,7 +33,7 @@ O resultado completo está disponível em PDF no seguinte caminho do repositóri
 O compilador irá processar o código de exemplo `sort.txt` e gerar o resultado em Python no arquivo `result.py`.
 
 ```
-git clone https://github.com/seu-usuario/compilador-c--
+git clone https://github.com/SofiaHillss/Compilador_LL1-Project.git
 cd Front_end_compilador
 python3 main.py
 
