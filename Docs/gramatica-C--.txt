@@ -1,0 +1,63 @@
+Prog -> LAMBDA | Func Prog
+Func -> TipoRet ident ( ListaParam ) Corpo
+TipoRet -> void | Tipo
+ListaParam -> LAMBDA | Param OpcParams
+OpcParams -> LAMBDA | , Param OpcParams
+Param -> Tipo ident
+Corpo -> { ListaDeclara ListaComando }
+ListaDeclara -> LAMBDA | Declara ListaDeclara
+ListaComando -> LAMBDA | Comando ListaComando
+Tipo -> Primitivo | [ Primitivo ]
+Primitivo -> int | float | string
+Declara -> Tipo ListaVar ;
+ListaVar -> Var RestoListaVar
+RestoListaVar -> LAMBDA | , ListaVar
+Var -> ident OpcValor
+OpcValor -> LAMBDA | = Exp
+Comando -> ComAtrib | ComIf | ComFor | ComWhile
+Comando -> ComReturn | ComContinue | ComBreak
+Comando -> ComEntrada | ComSaida | ComBloco
+ComAtrib -> ident PosicaoOpc = Exp ;
+PosicaoOpc -> LAMBDA | [ Exp ]
+ComIf -> if ( Exp ) Comando OpcElse
+OpcElse -> LAMBDA | else Comando | elif ( Exp ) Comando OpcElse
+ComFor -> for ( ident = Exp ; Exp ; ident = Exp ) Comando
+ComFor -> foreach ident = Exp : Comando
+ComWhile -> while ( Exp ) Comando
+ComReturn -> return OpcRet ;
+OpcRet -> LAMBDA | Exp
+ComContinue -> continue ;
+ComBreak -> break ;
+ComEntrada -> read ( ident ) ;
+ComSaida -> write ( ListaOut ) ;
+ListaOut -> Exp RestoListaOut
+RestoListaOut -> LAMBDA | , ListaOut
+ComBloco -> { ListaComando }
+Folha -> ValPrim | ident Recorte | ident ( ListaArgs ) | ( Exp ) | ValLista
+ValPrim -> valint | valfloat | valstring
+ValLista -> [ ListaExp ]
+Recorte -> LAMBDA | [ Dentro ]
+Dentro -> Exp RestoDentro | : OpcInt
+RestoDentro -> LAMBDA | : OpcInt
+OpcInt -> LAMBDA | Exp
+ListaArgs -> LAMBDA | Exp RestoListaArgs
+RestoListaArgs -> lambda | , Exp RestoListaArgs
+ListaExp -> LAMBDA | Exp OpcListaExp
+OpcListaExp -> LAMBDA | , Exp OpcListaExp
+Uno -> + Uno | - Uno | Folha
+Mult -> Uno RestoMult
+RestoMult -> LAMBDA | * Uno RestoMult | / Uno RestoMult
+RestoMult -> mod Uno RestoMult | div Uno RestoMult
+Soma -> Mult RestoSoma
+RestoSoma -> LAMBDA | + Mult RestoSoma | - Mult RestoSoma
+Rel -> Soma RestoRel
+RestoRel -> LAMBDA | == Soma | != Soma
+RestoRel -> <= Soma | >= Soma | > Soma | < Soma
+Nao -> not Nao | Rel
+Junc -> Nao RestoJunc
+RestoJunc -> LAMBDA | and Nao RestoJunc
+Exp -> Junc RestoExp
+RestoExp -> LAMBDA | or Junc RestoExp
+
+
+
