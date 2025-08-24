@@ -1,0 +1,47 @@
+
+int length ([int] lista){
+    int count =0;
+    int i ; 
+
+    foreach i = lista:{
+        count = count+1;
+    }
+    return count ;
+}
+
+
+[int] sort([int] lista) {
+   int i, j, chave;
+   int tam = length(lista);
+   for (i = 2; i <= tam; i = i + 1) {
+      chave = lista[i];
+      j = i - 1;
+      while (j >= 1 and lista[j] > chave) {
+         lista[j+1] = lista[j];
+         j = j - 1;
+      }
+      lista[j+1] = chave;
+   }
+   return lista;
+}
+
+void main() {
+   [int] ordenada;
+   
+   [int] lista = [ ];
+   int i, aux;
+   for (i = 1; i <= 10; i = i + 1) {
+      write("Forneça o ", i, "º inteiro: ");
+      read(aux);
+      lista = lista + [aux];
+   }
+
+   ordenada = sort(lista);
+
+   write("\nLista ordenada:\n");
+   for (i = 1; i <= 10; i = i + 1) {
+      write(i, "º: ", ordenada[i], "\n");
+   }
+
+   return;
+}
